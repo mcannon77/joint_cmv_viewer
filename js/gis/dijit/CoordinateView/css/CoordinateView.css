@@ -19,3 +19,23 @@
    
     content: "\f009";
 }
+/*MikeH tinkering*/
+.dijitCoord {
+/*font-size: 11px;*/
+/*margin: 2px 0px 0px 0px;*/
+/*text-shadow: 1px 1px #151515;8?
+padding: 1px;
+/*border-radius: 5px;
+background-color: #E6E6E6;
+border-shadow: inset 0px 1px 0px rgba(255,255,255,0.2), 0px 1px 2px rgba(0,0,0,0.05);*/
+
+}
+.dijitCoord .dijitDropDownButton .dijitButtonNode{
+padding: 1px;
+}
+.dijitCoord #coords {
+background-color: rgba(192,192,192,0.6);
+border-radius: 3px;
+padding: 1px;
+margin: 2px 0px 0px 0px;
+}
