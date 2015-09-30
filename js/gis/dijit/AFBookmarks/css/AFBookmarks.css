@@ -1,0 +1,21 @@
+.selectedIcon:before {
+    font-family: FontAwesome;
+   
+    content: "\f046";
+}
+
+.container::before {
+    overflow: scroll;
+
+} 
+.emptyIcon:before {
+    font-family: FontAwesome;
+   
+    content: "\f096";
+}
+
+.basemapsIcon:before {
+    font-family: FontAwesome;
+   
+    content: "\f009";
+}
