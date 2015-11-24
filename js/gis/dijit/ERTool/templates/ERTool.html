@@ -1,0 +1,84 @@
+﻿<div class="gis_ERToolDigit">
+    <div class="formContainer">
+        <div data-dojo-attach-point="lblActiveEvent"></div>
+        <table>
+            <tr>
+                <td colspan="5"><b>Add Incidents and Features:</b></td>
+            </tr>
+            <tr>
+                <td>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'addIncidentIcon',showLabel:false"
+                            data-dojo-attach-event="onClick:addIncidentPoint" title="Add New Incident"></button>
+                </td>
+                <td>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'addIncidentByBuildingIcon',showLabel:false"
+                            data-dojo-attach-event="onClick:addIncidentByBuilding" title="Add New Incident by Building"></button>
+                </td>
+                <td>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'addBlockadeIcon',showLabel:false"
+                            data-dojo-attach-event="onClick:addBlockade" title="Add New Blockade"></button>
+                </td>
+                <td>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'addSafeRouteIcon',showLabel:false"
+                            data-dojo-attach-event="onClick:addSafeRoute" title="Add New Safe Route"></button>
+                </td>
+                <td>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'addCordonedBldgsIcon',showLabel:false"
+                            data-dojo-attach-event="onClick:addCordonedBuildings" title="Add Cordoned Buildings"></button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div data-dojo-type="dijit.form.Form">
+                        <b>Add Cordon to Active Incident:</b><br />
+                        <input type="text" data-dojo-type="dijit.form.ValidationTextBox" data-dojo-attach-point="txtCordonSize" data-dojo-props="name:'cordonSize',trim:true,required:true,value:'',regExp:'\\d+',placeholder:'Feet',class:'textBox'" />
+                        <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'lineIcon',showLabel:true"
+                                data-dojo-attach-event="onClick:addCordon">
+                            Add New Cordon
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <b>Change Status of Multiple Facilities:</b><br/>
+                    <select data-dojo-attach-point="selectFacilStatus" data-dojo-type="dijit.form.Select">
+                        <option value="CORDONED">CORDONED</option>
+                        <option value="EVACUATED">EVACUATED</option>
+                        <option value="NOTIFIED">NOTIFIED</option>
+                        <option value="ALL_CLEAR">ALL CLEAR</option>
+                        <option value="SHELTER">SHELTER</option>
+                    </select>
+                    <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'lineIcon',showLabel:true"
+                            data-dojo-attach-event="onClick:changeMultipleFacilStatus">
+                        Select Facilities
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <b>Plume Options:</b><br/>
+                    <form enctype="multipart/form-data" method="post" id="uploadForm" data-dojo-attach-point="uploadForm" data-dojo-attach-event="change:addPlumeShpFile">
+                        <div class="field">
+                            <label class="file-upload">
+                                <span><strong>Add SHP</strong></span>
+                                <input type="file" name="file" id="inFile" />
+                            </label>
+                        </div>
+                    </form>
+                    <span class="file-upload-status" style="opacity:1;" id="uploadStatus" data-dojo-attach-point="uploadStatus"></span>
+                    <div id="fileInfo">&nbsp;</div>
+                </td>
+            </tr>
+            <!--<tr>
+                    <td>
+                        <button data-dojo-type="dijit.form.Button" data-dojo-props="iconClass:'polyIcon',showLabel:true"
+                                data-dojo-attach-event="onClick:addCustomPlume">
+                            Custom Plume
+                        </button>
+                    </td>
+                </tr>-->
+        </table>
+            
+    </div>
+</div>

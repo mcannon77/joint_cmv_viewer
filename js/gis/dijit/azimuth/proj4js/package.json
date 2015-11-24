@@ -1,0 +1,9 @@
+{
+    "name": "proj4js",
+    "description": "proj4js",
+    "version": "1.0",
+    "keywords": ["proj4js"],
+    
+    "main": "main.js",
+    "dojoBuild": "proj4js.profile.js"
+}

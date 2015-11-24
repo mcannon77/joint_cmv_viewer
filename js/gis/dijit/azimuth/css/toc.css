@@ -1,0 +1,115 @@
+﻿.jstoolkit-toc
+{   
+    overflow:auto;
+    font-size: 0;
+}
+    
+.jstoolkit-toc img
+{        
+    vertical-align: middle;
+} 
+    
+.jstoolkit-toc span
+{        
+    display: inline-block; 
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow:hidden;
+    font-size: 11px;
+}
+    
+.jstoolkit-toc div.expando
+{        
+    display: inline-block; 
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+    
+.jstoolkit-toc div.checkbox
+{        
+    display: inline-block; 
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+    
+.jstoolkit-toc .node
+{        
+    font-weight: normal;
+}
+
+.jstoolkit-toc .disabled
+{        
+    color: #cccccc;
+}
+    
+.jstoolkit-toc .node .children
+{
+    margin-left: 22px;
+    font-weight: normal;
+}
+  
+.jstoolkit-toc span.title
+{
+    padding-left: 2px;    
+}    
+
+.jstoolkit-toc span.group-title
+{
+    font-weight: bold; 
+}
+    
+.jstoolkit-toc .node-content
+{
+    white-space: nowrap;
+    display: inline-block;
+}
+    
+.jstoolkit-toc .multi-icon
+{
+    margin-left: 36px;
+}
+
+.jstoolkit-toc .icon-row
+{
+    white-space: nowrap;
+    display: inline-block;
+}
+    
+.jstoolkit-toc .icon
+{
+    display: inline-block;
+    text-align:center;
+    margin-right: 5px;
+}
+
+/* TOC LAYER TOOLS */
+
+.jstoolkit-toc .mapserviceToolIcon
+{
+    margin-left:5px;
+}
+
+.jstoolkit-toc .layerControls
+
+{
+    margin:5px 0 5px 25px;   
+}
+
+.jstoolkit-toc .transparencySlider
+{
+    margin: 5px 0 0 0;
+    width: 105px;
+}
+
+.jstoolkit-toc .transparencyLabelDiv
+{
+    margin: 3px 0 0 0px;
+    color:#000;
+}
+
+.jstoolkit-toc .transparencyLabel
+{
+    
+}

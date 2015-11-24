@@ -3,10 +3,8 @@ define([
    'esri/geometry/Extent',
    'esri/config',
    'esri/tasks/GeometryService',
-   'esri/layers/ImageParameters',
-   'esri/geometry/Point',
-   'esri/urlUtils'
-], function (units, Extent, esriConfig, GeometryService, ImageParameters, Point, urlUtils) {
+   'esri/layers/ImageParameters'
+], function (units, Extent, esriConfig, GeometryService, ImageParameters) {
 
     // url to your proxy page, must be on same machine hosting you app. See proxy folder for readme.
     esriConfig.defaults.io.proxyUrl = 'proxy/proxy.ashx';
@@ -25,46 +23,12 @@ define([
         //default mapClick mode, mapClickMode lets widgets know what mode the map is in to avoid multipult map click actions from taking place (ie identify while drawing).
         defaultMapClickMode: 'identify',
         // map options, passed to map constructor. see: https://developers.arcgis.com/javascript/jsapi/map-amd.html#map1
-
         mapOptions: {
-            basemap: '',            
-            lods: ([
-                      { "level": 0, "resolution": 156543.033928, "scale": 591657527.591555 },
-                      { "level": 1, "resolution": 78271.5169639999, "scale": 295828763.795777 },
-                      { "level": 2, "resolution": 39135.7584820001, "scale": 147914381.897889 },
-                      { "level": 3, "resolution": 19567.8792409999, "scale": 73957190.948944 },
-                      { "level": 4, "resolution": 9783.93962049996, "scale": 36978595.474472 },
-                      { "level": 5, "resolution": 4891.96981024998, "scale": 18489297.737236 },
-                      { "level": 6, "resolution": 2445.98490512499, "scale": 9244648.868618 },
-                      { "level": 7, "resolution": 1222.99245256249, "scale": 4622324.434309 },
-                      { "level": 8, "resolution": 611.49622628138, "scale": 2311162.217155 },
-                      { "level": 9, "resolution": 305.748113140558, "scale": 1155581.108577 },
-                      { "level": 10, "resolution": 152.874056570411, "scale": 577790.554289 },
-                      { "level": 11, "resolution": 76.4370282850732, "scale": 288895.277144 },
-                      { "level": 12, "resolution": 38.2185141425366, "scale": 144447.638572 },
-                      { "level": 13, "resolution": 19.1092570712683, "scale": 72223.819286 },
-                      { "level": 14, "resolution": 9.55462853563415, "scale": 36111.909643 },
-                      { "level": 15, "resolution": 4.77731426794937, "scale": 18055.954822 },
-                      { "level": 16, "resolution": 2.38865713397468, "scale": 9027.977411 },
-                      { "level": 17, "resolution": 1.19432856685505, "scale": 4513.988705 },
-                      { "level": 18, "resolution": 0.597164283559817, "scale": 2256.994353 },
-                      { "level": 19, "resolution": 0.298582141647617, "scale": 1128.497176 },
-                      { "level": 20, "resolution": 0.198582141647617, "scale": 564.248588 },
-                      { "level": 21, "resolution": 0.098582141647617, "scale": 282.124294 }
-            ]),
-
-            center: new Point({
-                x: -3700000,
-                y: 3300000,
-                spatialReference: {
-                    wkid: 102100
-                }
-            }),
-            //center: [-30, 25],
-            zoom: 3,
+            basemap: 'streets',
+            center: [-96.59179687497497, 39.09596293629694],
+            zoom: 5,
             sliderStyle: 'small'
         },
-
         // panes: {
         // 	left: {
         // 		splitter: true
@@ -116,7 +80,7 @@ define([
                     title: 'My layer'
                 }
             }
-        }, {
+  }, {
             type: 'feature',
             url: 'http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0',
             title: 'San Francisco 311 Incidents',
@@ -127,7 +91,7 @@ define([
                 outFields: ['req_type', 'req_date', 'req_time', 'address', 'district'],
                 mode: 0
             }
-        }, {
+  }, {
             type: 'dynamic',
             url: 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/PublicSafety/PublicSafetyOperationalLayers/MapServer',
             title: 'Louisville Public Safety',
@@ -145,7 +109,7 @@ define([
                     hideLayers: [21]
                 }
             }
-        }, {
+  }, {
             type: 'dynamic',
             url: 'http://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/MapServer',
             title: 'Damage Assessment',
@@ -163,12 +127,7 @@ define([
                 metadataUrl: true,
                 expanded: true
             }
-        }
-
-
-
-            
-  ],
+  }],
         // set include:true to load. For titlePane type set position the the desired order in the sidebar
         widgets: {
             growler: {
@@ -206,24 +165,14 @@ define([
                 position: 3,
                 options: 'config/identify'
             },
-            afbasemaps: {
+            basemaps: {
                 include: true,
                 id: 'basemaps',
                 type: 'domNode',
-                path: 'gis/dijit/AFBasemaps',
+                path: 'gis/dijit/Basemaps',
                 srcNodeRef: 'basemapsDijit',
-                options: 'config/afbasemaps'
+                options: 'config/basemaps'
             },
-            afbookmarks:{
-                include: true,
-                title: 'Bookmarks',
-                id: 'afbookmarks',
-                type: 'domNode',
-                path: 'gis/dijit/AFBookmarks',
-                srcNodeRef: 'afBookmarksDijit',
-                options: 'config/afbookmarks'
-            },
-          
             mapInfo: {
                 include: false,
                 id: 'mapInfo',
@@ -249,21 +198,12 @@ define([
                 options: {
                     map: true,
                     attachTo: 'bottom-left',
-                    scalebarStyle: 'line',
-                    scalebarUnit: 'dual'
+                    scalebarStyle: 'ruler',
+                    scalebarUnit: 'metric'
                 }
             },
-            coordinateView: {
-                include: true,
-                title: 'CoordinateView',
-                id: 'coordinateView',
-                type: 'domNode',
-                path: 'gis/dijit/CoordinateView',
-                srcNodeRef: 'coordinateViewDijit',
-                options: 'config/coordinateview'
-            },
             locateButton: {
-                include: true,
+                include: false,
                 id: 'locateButton',
                 type: 'domNode',
                 path: 'gis/dijit/LocateButton',
@@ -278,6 +218,42 @@ define([
                         timeout: 15000,
                         enableHighAccuracy: true
                     }
+                }
+            },
+            ertool: {
+                include: false,
+                id: 'ertool',
+                type: 'titlePane',
+                canFloat: false,
+                position: 10, path: 'gis/dijit/ERTool',
+                title: '<i class="fa fa-ambulance"></i>&nbsp;&nbsp;Emergency Response',
+                options: 'config/ertool'
+            },
+            imageryManagement: {
+                include: false,
+                id: 'imageryManagement',
+                type: 'titlePane',
+                //   	type: 'domNode',
+                //	path: 'esri/dijit/ImageFilter',
+                //         srcNodeRef: 'iControls',
+                canFloat: false,
+                position: 15,
+                path: 'gis/dijit/Imagery',
+                title: '<i class="fa fa-globe"></i>&nbsp;&nbsp;AF Imagery',
+                //options: {map: true}
+                options: 'config/imageryManagement'
+            },           
+            openskies: {
+                include: false,
+                id: 'os',
+                type: 'titlePane',
+                //    placeAt: 'top',
+                canFloat: false,
+                position: 13,
+                path: 'gis/dijit/OpenSkies',
+                title: '<i class="fa fa-plane"></i>&nbsp;&nbsp;Open Skies',
+                options: {
+                    map: true
                 }
             },
             overviewMap: {
@@ -296,7 +272,7 @@ define([
                 }
             },
             homeButton: {
-                include: true,
+                include: false,
                 id: 'homeButton',
                 type: 'domNode',
                 path: 'esri/dijit/HomeButton',
@@ -304,18 +280,18 @@ define([
                 options: {
                     map: true,
                     extent: new Extent({
-                        xmin: -18502000,
-                        ymin: -3737000,
-                        xmax: 19069000,
-                        ymax: 11780000,
+                        xmin: -180,
+                        ymin: -85,
+                        xmax: 180,
+                        ymax: 85,
                         spatialReference: {
-                            wkid: 102100
+                            wkid: 4326
                         }
                     })
                 }
             },
             legend: {
-                include: true,
+                include: false,
                 id: 'legend',
                 type: 'titlePane',
                 path: 'esri/dijit/Legend',
@@ -343,8 +319,26 @@ define([
                     overlayReorder: true
                 }
             },
-            bookmarks: {
+            afbookmarks: {
                 include: true,
+                title: 'Bookmarks',
+                id: 'afbookmarks',
+                type: 'domNode',
+                path: 'gis/dijit/AFBookmarks',
+                srcNodeRef: 'afBookmarksDijit',
+                options: 'config/afbookmarks'
+            },
+            coordinateView: {
+                include: true,
+                title: 'CoordinateView',
+                id: 'coordinateView',
+                type: 'domNode',
+                path: 'gis/dijit/CoordinateView',
+                srcNodeRef: 'coordinateViewDijit',
+                options: 'config/coordinateview'
+            },
+            bookmarks: {
+                include: false,
                 id: 'bookmarks',
                 type: 'titlePane',
                 path: 'gis/dijit/Bookmarks',

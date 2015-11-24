@@ -1,0 +1,63 @@
+.ImageryDijit .buttonAction {
+    padding: 3 px 0 2 px;text - align: right;width: 100 %
+}
+#attributesContainer { 
+/*border: 2px solid red;*/
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    padding: 0;
+
+}
+#headerContainer {
+padding: 0px;
+}
+#testNode {
+/*height: 20px;*/
+float: left;
+width: 100%;
+display: inline;
+}
+#opacityNode {
+display: inline;
+float: right;
+/*position: relative;*/
+}
+#testNode .dijitButtonNode { 
+  /* width: 15x;
+   height: 5x; */
+ /*  display: block;*/
+   padding: 0px;
+}
+.dgrid-row {
+    height: 20px;
+}
+.dgrid-cell {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.field-iSel {
+    width: 60px;
+	text-align: center;
+}
+.field-sel {
+    width: 60px;
+	text-align: center;
+}
+.field {
+    width: 120px;
+}
+.dbootstrap .dgrid .dgrid-cell-padding {
+padding: 0;
+}
+.ImageryDijit .tabContainer {
+    height: 100%;
+    width: 100%;
+}
+.ImageryDijit .searchTab {
+    padding: 10px !important;
+}
+.ImageryDijit label {
+	font-weight: bold;
+	margin-left: 3px;
+}

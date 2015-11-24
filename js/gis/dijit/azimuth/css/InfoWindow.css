@@ -1,0 +1,193 @@
+﻿.wvsInfoWindow {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 0.75em #777777;
+    font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    position: absolute;
+    z-index: 40;
+}
+
+.wvsInfoWindow .infoWindowWrapper {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 0.75em #777777;
+}
+
+.wvsInfoWindow .titlePane {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #444444;
+    border-color: #666666 #666666 -moz-use-text-color;
+    border-image: none;
+    border-radius: 5px 5px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: #FFFFFF;
+    cursor: default;
+    line-height: 20px;
+    padding-left: 6px;
+}
+
+.wvsInfoWindow .titleButton {
+    background: url("../images/popup.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+}
+
+.wvsInfoWindow .titleButton.close {
+    background-position: 0 -171px;
+    height: 17px;
+    right: 3px;
+    width: 12px;
+}
+
+
+.wvsInfoWindow .titleButton.maximize {
+    background-position: 0 -251px;
+    height: 11px;
+    right: 22px;
+    top: 5px;
+    width: 11px;
+}
+
+
+.wvsInfoWindow .titleButton.restore {
+    background-position: 0 -787px;
+    height: 11px;
+    right: 22px;
+    top: 5px;
+    width: 11px;
+}
+
+.wvsInfoWindow .titleButton.prev {
+    background-position: 0 -224px;
+    height: 17px;
+    right: 74px;
+    width: 9px;
+}
+
+
+.wvsInfoWindow .titleButton.next {
+    background-position: 0 -443px;
+    height: 17px;
+    right: 56px;
+    width: 9px;
+}
+
+.wvsInfoWindow .contentPane {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F7F7F7;
+    border-color: -moz-use-text-color #999999;
+    border-image: none;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-style: none solid;
+    border-width: medium 1px;
+    color: #333333;
+    max-height: 300px;
+    overflow: auto;
+    padding: 10px 6px 6px 10px;
+    position: relative;
+}
+
+.wvsInfoWindow .actionsPane {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F7F7F7;
+    border-color: -moz-use-text-color #999999 #999999;
+    border-image: none;
+    border-radius: 0 0 5px 5px;
+    border-right: 1px solid #999999;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 2px 10px 4px;
+}
+
+.wvsInfoWindow .selectedAction {
+    font-weight: bold;
+    color: black;
+}
+
+.wvsInfoWindow .pointer, .wvsInfoWindow .outerPointer {
+    background: url("../dijit/images/popup.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    position: absolute;
+}
+
+.wvsInfoWindow .pointer.top {
+    background-position: 0 -580px;
+    height: 14px;
+    left: 50%;
+    margin-left: -12px;
+    top: -12px;
+    width: 24px;
+}
+
+.wvsInfoWindow .pointer.bottom {
+    background-position: 0 -55px;
+    bottom: -12px;
+    height: 14px;
+    left: 50%;
+    margin-left: -12px;
+    width: 25px;
+}
+
+
+.wvsInfoWindow .pointer.bottomLeft {
+    background-position: 0 0;
+    bottom: -43px;
+    height: 45px;
+    left: 0;
+    width: 51px;
+}
+
+
+.wvsInfoWindow .pointer.topLeft {
+    background-position: 0 -470px;
+    height: 45px;
+    left: 0;
+    top: -43px;
+    width: 51px;
+}
+
+.wvsInfoWindow .pointer.topRight {
+    background-position: 0 -652px;
+    height: 45px;
+    right: 0;
+    top: -43px;
+    width: 51px;
+}
+
+.wvsInfoWindow .pointer.bottomRight {
+    background-position: 0 -91px;
+    bottom: -43px;
+    height: 45px;
+    right: 0;
+    width: 51px;
+}
+
+
+.wvsInfoWindow .outerPointer.left {
+    background-position: 0 -285px;
+    height: 17px;
+    left: 5px;
+    margin-top: -8px;
+    top: 50%;
+    width: 13px;
+}
+
+
+.wvsInfoWindow .outerPointer.right {
+    background-position: 0 -344px;
+    height: 17px;
+    margin-top: -9px;
+    right: 6px;
+    top: 50%;
+    width: 13px;
+}

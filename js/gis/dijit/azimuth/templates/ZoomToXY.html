@@ -1,0 +1,119 @@
+﻿<div data-dojo-attach-point="containerNode" class="dijitDialogPaneContent" style="font-size:small">
+        <div data-dojo-attach-point="contentNode">
+            <label>Select Units: </label>
+            <div data-dojo-attach-point="UnitSelect"></div>
+            <div data-dojo-attach-point="ZoomToXY_dd_container" data-coordinate-type="dd">
+                <table style="width: 100%; padding: 2px;">
+                    <tr>
+                        <td>Latitude
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_ddLatDeg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Longitude
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_ddLongDeg" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div data-dojo-attach-point="ZoomToXY_dms_container"style="display: none;" data-coordinate-type="dms|ddm">
+                <table style="width: 100%; padding: 2px;">
+                    <tr>
+                        <td></td>
+                        <td>Degrees
+                        </td>
+                        <td>Minutes
+                        </td>
+                        <td data-dojo-attach-point="ZoomToXY_secHeader" data-coordinate-subfield="dms">Seconds
+                        </td>
+                        <td>Quad
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Latitude
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_latDeg" />
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_latMin" />
+                        </td>
+                        <td data-dojo-attach-point="ZoomToXY_latSecTD" data-coordinate-subfield="dms">
+                            <input data-dojo-attach-point="ZoomToXY_latSec" />
+                        </td>
+                        <td>
+                            <div data-dojo-attach-point="ZoomToXY_latQuad">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Longitude
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_longDeg" />
+                        </td>
+                        <td>
+                            <input data-dojo-attach-point="ZoomToXY_longMin" />
+                        </td>
+                        <td data-dojo-attach-point="ZoomToXY_longSecTD" data-coordinate-subfield="dms">
+                            <input data-dojo-attach-point="ZoomToXY_longSec" />
+                        </td>
+                        <td>
+                            <div data-dojo-attach-point="ZoomToXY_longQuad">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dijitDialogPaneContentArea" data-dojo-attach-point="mgrs_container" style="display:none;" data-coordinate-type="mgrs">
+                <table style="width: 100%; padding: 2px;">
+                    <tr>
+                        <th colspan="2" style="text-align:center">Grid Zone Designation</th>
+                        <th colspan="2" style="text-align:center">100m sq. ID</th>
+                        <th colspan="2" style="text-align:center">Numerical Location</th>
+                    </tr>
+                    <tr>
+                        <td>UTM Zone</td>
+                        <td>Latitude Band</td>
+                        <td>Column</td>
+                        <td>Row</td>
+                        <td>Easting</td>
+                        <td>Northing</td>
+                    </tr>
+                    <tr>
+                        <td><div data-dojo-attach-point="mgrs_utmZone"></div></td>
+                        <td><div data-dojo-attach-point="mgrs_latitudeBand"></div></td>
+                        <td><div data-dojo-attach-point="mgrs_squareIdCol"></div></td>
+                        <td><div data-dojo-attach-point="mgrs_squareIdRow"></div></td>
+                        <td><div data-dojo-attach-point="mgrs_easting"></div></td>
+                        <td><div data-dojo-attach-point="mgrs_northing"></div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dijitDialogPaneContentArea" data-dojo-attach-point="ZoomToXY_mu_container" style="display: none;" data-coordinate-type="mu">
+                <table style="width: 100%; padding: 2px;">
+                    <tr>
+                        <td style="width: 25%;">X
+                        </td>
+                        <td style="width: 75%">
+                            <input data-dojo-attach-point="ZoomToXY_x" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">Y
+                        </td>
+                        <td style="width: 75%">
+                            <input data-dojo-attach-point="ZoomToXY_y" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dijitDialogPaneActionBar">
+                <input data-dojo-attach-point="ZoomToXY_btnSubmit" data-dojo-attach-event="onclick: _submitCoords" type="button" value="Go" />
+            </div>
+        </div>
+    </div>

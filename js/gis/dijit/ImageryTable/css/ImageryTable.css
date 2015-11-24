@@ -1,0 +1,53 @@
+.cmvAttributesContainerWidget {
+    height: 100%;
+    width: 100%;
+}
+.attributesTabContainer {
+    height: 100%;
+}
+.cmvImageryTableWidget .ImageryTableToolbar {
+    position:absolute;
+	top: 0px;
+	left: 0px;
+    right: 0px;
+    display:none;
+}
+
+.cmvImageryTableWidget .ImageryTableGrid {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: auto;
+    height: auto;
+	padding: 0px;
+	overflow: hidden;
+    overflow-x: auto;
+}
+
+.cmvImageryTableWidget .ImageryTableZoomMenu,
+.cmvImageryTableWidget .ImageryTableClearMenu,
+.cmvImageryTableWidget .ImageryTableExportMenu {
+    display: none;
+}
+
+.cmvImageryTableWidget .ImageryTableExportMenu {
+    float: right;
+    margin-right: 15px;
+}
+
+/*
+    used with dgrid "column reorder" extension
+    prevents the column header text from resizing when user mouses over header
+*/
+.cmvImageryTableWidget .dgrid .dgrid-header .dgrid-cell {
+    display: table-cell;
+}
+
+/* for a floating widget, will this ever be used? */
+.floatingWidget .cmvImageryTableWidget .ImageryTableGrid {
+	top: 0px;
+	height: 300px;
+	position:relative;
+}

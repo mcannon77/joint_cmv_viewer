@@ -11,11 +11,13 @@
     'dojox/lang/functional',
     'dojo/text!./CoordinateView/templates/CoordinateView.html',   
     'dijit/layout/ContentPane',
+    'require',
     'dojo/i18n!./CoordinateView/nls/resource',
+    
     'xstyle/css!./CoordinateView/css/CoordinateView.css'
 
    // '//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'
-], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, lang, DropDownMenu, MenuItem, DropDownButton, array, functional, template, ContentPane, i18n) {
+], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, lang, DropDownMenu, MenuItem, DropDownButton, array, functional, template, ContentPane, require,  i18n) {
 
     // main basemap widget
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
@@ -190,8 +192,10 @@
                 style: 'display: none;' //,
                 //baseClass: this.menuClass
             });
-            strURLtoMGRSCode = this.urltoCode;
+            strURLtoMGRSCode = require.toUrl(this.urltoCode).toString();        
+        
             var handle = require.on('error', function (error) {
+              
                 alert('Unable to load MGRS code')
             });               
           

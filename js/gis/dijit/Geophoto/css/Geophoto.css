@@ -1,0 +1,9 @@
+      .dj_ie .infowindow .window .top .right .user .content { position: relative; }
+      .dj_ie .simpleInfoWindow .content { position: relative; }
+      .templatePicker {
+        border: none;
+      }
+#geoC {
+height: 200px;
+overflow: hidden;
+}

@@ -1,0 +1,260 @@
+﻿.jstoolkit-hidden
+{
+    visibility: hidden;
+}
+
+.jstoolkit-display-none
+{
+    display: none;
+}
+
+.jstoolkit-display-block
+{
+    display: block;
+}
+
+.jstoolkit-display-inline-block
+{
+    display: inline-block;
+}
+
+.jstoolkit-display-inline
+{
+    display: inline;
+}
+
+/* CURSORS */
+
+.jstoolkit-cursor-pointer
+{
+    cursor: pointer;
+}
+
+
+/* Global Stylings*/
+.jstoolkit-map-fullscreen-button
+{
+    -moz-user-select: none;
+    background-color: rgb(102, 102, 102);
+    background-color: rgba(102, 102, 102, 0.8);
+    background-image: url("../images/maximize.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    padding: 2px;
+    width: 30px;
+}
+
+    .jstoolkit-map-fullscreen-button:hover
+    {
+        background-color: rgba(102, 102, 102, 0.9);
+    }
+
+    .jstoolkit-map-fullscreen-button.maximized
+    {
+        background-image: url("../images/minimize.png");
+    }
+
+
+/* Widgets */
+
+.jstoolkit-dijit
+{
+}
+
+.jstoolkit-dijit-SimpleButton-checked span{
+    color: #f00;
+}
+
+.jstoolkit-dijit-Identify
+{
+}
+
+.jstoolkit-dijit-tool-container
+{
+    left: 10px;
+    position: absolute;
+    top: 46px;
+    width: auto;
+    min-width: 300px;
+    z-index: 31;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.jstoolkit-dijit-tool-container-close
+{
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
+
+.jstoolkit-dijits-Swipe
+{
+    min-width: 300px;
+}
+.floatingColorPickers
+{
+    left: 23.3%;
+    position: absolute;
+    right: 1.5%;
+    top: 12.5%;
+    z-index: 3;
+}
+
+.toolkit-dijits-fillColorButton
+{
+    cursor: pointer;
+    min-height: 16px; 
+    min-width: 16px; 
+    border: 1px solid black;
+    display:inline-block;
+    position: relative;
+    top: 5px;
+}
+
+    .toolkit-dijits-fillColorButton:hover
+    {
+        border-color: #b4b4b4;
+    }
+
+.toolkit-dijits-fillTransparencyValue
+{
+    border: 1px solid #b4b4b4;
+    bottom: 6px;
+    padding: 0.02em;
+    position: relative;
+}
+
+    .toolkit-dijits-fillTransparencyValue > span, .displayLimit35 .dijitButtonText
+    {
+        display: inline-block;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 35px;
+    }
+
+.displayLimit100 .dijitButtonText
+{
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100px;
+}
+
+#wvsGraphicEditContainer
+{
+    left: 10px;
+    position: absolute;
+    top: 185px;
+    width: 450px;
+    z-index: 30;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.jstoolkit-circle-dot {
+    background-image: url("../images/large_dots.png");
+    width: 32px;
+    height: 32px;
+    padding-left:10px;
+    padding-top:6px;
+    background-repeat: no-repeat;
+}
+
+.jstoolkit-circle-dot-grey {
+    background-position: 0px 0px;
+}
+
+.jstoolkit-circle-dot-green {
+    background-position: 0px -32px;
+}
+
+.jstoolkit-circle-dot-blue {
+    background-position: 0px -64px;
+}
+
+.jstoolkit-circle-dot-red {
+    background-position: 0px -96px;
+}
+.jstoolkit-circle-dot-orange {
+    background-position: 0px -128px;
+}
+
+.jstoolkit-floatingPane
+{
+    padding: 0.5em;
+}
+/* esri Overrides */
+
+/* Zoom Slider Styles*/
+
+/* By Default, the large slider is on the left-hand side (where some tools go). Move it to the right instead.
+.esriLargeSliderTL {
+    right:30px;
+    left:initial
+}
+
+*/
+
+.nonModal_underlay
+{
+    display: none;
+}
+
+.bookmarkList
+{
+  line-height: 26px;
+}
+    .bookmarkList .bookmarkLabel
+    {
+        padding-left:14px;
+    }
+    .bookmarkList:hover
+    {
+        background-color:#EFEFEF;
+    }
+
+/*.jstoolkit-dijit-tool-container styles*/
+
+.jstoolkit-dijit-tool-container .row-fluid, .dijitDialogPaneContent .row-fluid
+{
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+
+/* MapViewer Overlay */
+    #mapLoadOverlay
+    {
+        position:absolute;
+        text-align:center;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        top:94px;
+        width:100%;
+        height:100%;
+        z-index:3;
+        /*background:rgba(255, 255, 255, 0.85);*/
+        background:rgb(255, 255, 255);
+    }
+        #mapLoadOverlay img
+        {
+            margin:auto auto;
+            position:relative;
+            top:33%;
+        }

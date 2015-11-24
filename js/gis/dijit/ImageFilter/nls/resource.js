@@ -9,7 +9,10 @@ define({
         },
 		footprint: {
             label: "Footprint"
-        }
+        },
+        imageClear: {
+            label: "Clear Selection"
+        },		
     }
 });
 //# sourceMappingURL=resource.map

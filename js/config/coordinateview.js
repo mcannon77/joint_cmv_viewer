@@ -8,8 +8,8 @@ define([
     
     return {
         map: true,
-        urltoCode: 'http://localhost:63067/js/gis/dijit/CoordinateView/coord/usng.js',
-        defaultCoord: 'coordMC',
+        urltoCode: './CoordinateView/coord/usng.js',
+        defaultCoord: 'coordDMS',
         optionsToShow: ['coordDMS', 'coordDM', 'coordDD', 'coordMC', 'coordUTM', 'coordMGRS', 'coordUSNG'],
         coordinate: { 
             coordDMS: {

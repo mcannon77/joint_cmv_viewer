@@ -1,0 +1,89 @@
+.bufferNode .dijitInputContainer {
+    padding: 0px;
+	text-align: center;
+}
+
+.DroppedCSV {
+	border: 1px solid #666666;
+	margin: 2px;
+	padding: 4px;
+}
+
+.DroppedCSV .iconNode {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	float: left;
+}
+.bufferNode .dijitButton {
+padding: 0;
+width: 8em;
+height: 2em;
+}
+.intResultsNode{
+padding: 2px;
+}
+.dgrid {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  height: 20em;
+  display: block;
+}
+.topContainer   {
+	padding-bottom: 0.5em;
+}
+.bufferNode {
+    border-bottom-style: solid;
+    border-top-style: solid;
+	border-width: thin;
+}
+.bufferNode {
+    padding: 0.5em;
+}
+.bufferNode .dijitTextBox {
+width: 1.5em;
+height: 1.2em;
+padding: 0.2em;
+}
+.DroppedCSV .labelNode {
+	display: inline-block;
+	line-height: 32px;
+	float: left;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.DroppedCSV .removeNode {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+}
+
+.DroppedCSV .labelNode .sub-label {
+	font-size: 80%;
+	color: #777;
+}
+
+.DroppedCSV .containerNode {
+	padding-left: 35px;
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.DroppedCSV .clearer {
+	clear: both;
+}
+
+.DroppedCSV .layerTitle {
+	font-style: oblique;
+}
+
+.DroppedCSV .layerInfo {
+	padding-left: 5px;
+}
+.dgrid-cell {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
