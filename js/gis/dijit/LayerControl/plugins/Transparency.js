@@ -1,59 +1,7 @@
-/* transparency component */
-define([
-    'dojo/_base/declare',
-    'dojo/_base/lang',
-    'dojo/_base/array',
-    'dojo/query',
-    'dojo/dom-style',
-    'dijit/PopupMenuItem',
-    'dijit/TooltipDialog',
-    'dijit/form/HorizontalSlider',
-    'dijit/form/HorizontalRuleLabels'
-], function (
-    declare,
-    lang,
-    array,
-    query,
-    domStyle,
-    PopupMenuItem,
-    TooltipDialog,
-    HorizontalSlider,
-    HorizontalRuleLabels
-) {
-    return declare(PopupMenuItem, {
-        layer: null,
-        constructor: function (options) {
-            options = options || {};
-            lang.mixin(this, options);
-        },
-        postCreate: function () {
-            this.inherited(arguments);
-            var transparencySlider = new HorizontalSlider({
-                value: this.layer.opacity,
-                minimum: 0,
-                maximum: 1,
-                discreteValues: 21,
-                intermediateChanges: true,
-                showButtons: false,
-                onChange: lang.hitch(this, function (value) {
-                    this.layer.setOpacity(value);
-                    array.forEach(query('.' + this.layer.id + '-layerLegendImage'), function (img) {
-                        domStyle.set(img, 'opacity', value);
-                    });
-                })
-            });
-            var rule = new HorizontalRuleLabels({
-                labels: ['100%', '50%', '0%'],
-                style: 'height:1em;font-size:75%;'
-            }, transparencySlider.bottomDecoration);
-            rule.startup();
-            transparencySlider.startup();
-            this.popup = new TooltipDialog({
-                style: 'width:200px;',
-                content: transparencySlider
-            });
-            domStyle.set(this.popup.connectorNode, 'display', 'none');
-            this.popup.startup();
-        }
-    });
-});
+/*  ConfigurableMapViewerCMV
+ *  version 1.3.4
+ *  Project: http://cmv.io/
+ */
+
+define(["dojo/_base/declare","dojo/_base/lang","dojo/_base/array","dojo/query","dojo/dom-style","dijit/PopupMenuItem","dijit/TooltipDialog","dijit/form/HorizontalSlider","dijit/form/HorizontalRuleLabels"],function(a,b,c,d,e,f,g,h,i){return a(f,{layer:null,constructor:function(a){a=a||{},b.mixin(this,a)},postCreate:function(){this.inherited(arguments);var a=new h({value:this.layer.opacity,minimum:0,maximum:1,discreteValues:21,intermediateChanges:!0,showButtons:!1,onChange:b.hitch(this,function(a){this.layer.setOpacity(a),c.forEach(d("."+this.layer.id+"-layerLegendImage"),function(b){e.set(b,"opacity",a)})})}),f=new i({labels:["100%","50%","0%"],style:"height:1em;font-size:75%;"},a.bottomDecoration);f.startup(),a.startup(),this.popup=new g({style:"width:200px;",content:a}),e.set(this.popup.connectorNode,"display","none"),this.popup.startup()}})});
+//# sourceMappingURL=Transparency.map

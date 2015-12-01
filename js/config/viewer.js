@@ -357,7 +357,7 @@ define([
                 open: false,
                 position: 3,
                 options: 'config/find'
-            },
+            },     
             draw: {
                 include: true,
                 id: 'draw',
@@ -366,7 +366,7 @@ define([
                 path: 'gis/dijit/Draw',
                 title: 'Draw',
                 open: false,
-                position: 4,
+                position: 5,
                 options: {
                     map: true,
                     mapClickMode: true
@@ -380,7 +380,7 @@ define([
                 path: 'gis/dijit/Measurement',
                 title: 'Measurement',
                 open: false,
-                position: 5,
+                position: 6,
                 options: {
                     map: true,
                     mapClickMode: true,
@@ -396,7 +396,7 @@ define([
                 path: 'gis/dijit/Print',
                 title: 'Print',
                 open: false,
-                position: 6,
+                position: 7,
                 options: {
                     map: true,
                     printTaskURL: 'https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task',
@@ -414,7 +414,7 @@ define([
                 path: 'gis/dijit/Directions',
                 title: 'Directions',
                 open: false,
-                position: 7,
+                position: 8,
                 options: {
                     map: true,
                     mapRightClickMenu: true,
@@ -435,7 +435,7 @@ define([
                 path: 'gis/dijit/Editor',
                 title: 'Editor',
                 open: false,
-                position: 8,
+                position: 9,
                 options: {
                     map: true,
                     mapClickMode: true,

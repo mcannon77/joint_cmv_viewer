@@ -89,7 +89,7 @@ define([
         this.setIcon(this.serviceIcons.loading, 20);
       }*/
       this.setIcon(this.serviceIcons.defaultIcon, 20);
-	  this.queryTask = new QueryTask("https://www.my.af.mil/accgeoprod/geobase/rest/services/Airfield_Planning/MapServer/7");
+	  this.queryTask = new QueryTask("../geobase/rest/services/Airfield_Planning/MapServer/7");
 	  this.query = new Query();
 	  this.allPoly = new GraphicsLayer({id:"allpoly"});
 	  this.allPolyUnion = [];
