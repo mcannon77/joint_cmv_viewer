@@ -60,27 +60,7 @@ define([
         // operationalLayers: Array of Layers to load on top of the basemap: valid 'type' options: 'dynamic', 'tiled', 'feature'.
         // The 'options' object is passed as the layers options for constructor. Title will be used in the legend only. id's must be unique and have no spaces.
         // 3 'mode' options: MODE_SNAPSHOT = 0, MODE_ONDEMAND = 1, MODE_SELECTION = 2
-        operationalLayers: [{
-            type: 'feature',
-            url: 'http://services1.arcgis.com/g2TonOxuRkIqSOFx/arcgis/rest/services/MeetUpHomeTowns/FeatureServer/0',
-            title: 'STLJS Meetup Home Towns',
-            options: {
-                id: 'meetupHometowns',
-                opacity: 1.0,
-                visible: true,
-                outFields: ['*'],
-                mode: 0
-            },
-            editorLayerInfos: {
-                disableGeometryUpdate: false
-            },
-            legendLayerInfos: {
-                exclude: false,
-                layerInfo: {
-                    title: 'My layer'
-                }
-            }
-  }, {
+        operationalLayers: [ {
             type: 'feature',
             url: 'http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0',
             title: 'San Francisco 311 Incidents',
@@ -91,7 +71,32 @@ define([
                 outFields: ['req_type', 'req_date', 'req_time', 'address', 'district'],
                 mode: 0
             }
-  }, {
+        }, {
+
+            //http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer
+
+            type: 'dynamic',
+            url: 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer',
+            title: 'Demographics',
+            options: {
+                id: 'demographicsMain',
+                opacity: 1.0,
+                visible: false,
+                imageParameters: imageParameters
+            },
+            identifyLayerInfos: {
+                layerIds: [5]
+            },
+            legendLayerInfos: {
+                layerInfo: {
+                    hideLayers: [1]
+                }
+            }
+
+
+
+
+        }, {
             type: 'dynamic',
             url: 'http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/PublicSafety/PublicSafetyOperationalLayers/MapServer',
             title: 'Louisville Public Safety',
@@ -357,7 +362,7 @@ define([
                 open: false,
                 position: 3,
                 options: 'config/find'
-            },     
+            },           
             draw: {
                 include: true,
                 id: 'draw',
@@ -373,7 +378,7 @@ define([
                 }
             },
             measure: {
-                include: true,
+                include: false,
                 id: 'measurement',
                 type: 'titlePane',
                 canFloat: true,

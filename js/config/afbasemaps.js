@@ -10,7 +10,7 @@ define([
     return {
         map: true,
         mapStartLayer: 'directtile', 
-	   basemapsToShow: ['directtile', 'streets', 'satellite', 'bing'], 
+	    basemapsToShow: ['directtile', 'streets', 'satellite', 'bing'], 
          basemaps: {  
             directtile: { 
                 title: 'AF Imagery', 
