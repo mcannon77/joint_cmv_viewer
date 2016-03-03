@@ -47,7 +47,8 @@ define([
     "esri/tasks/IdentifyTask",
     "esri/tasks/IdentifyParameters",
     "esri/InfoTemplate",   
-    'dijit/layout/ContentPane',
+    'dijit/layout/ContentPane',  
+  
     'dojo/i18n!./AFBookmarks/nls/resource',
     'xstyle/css!./AFBookmarks/css/AFBookmarks.css'   
 
@@ -198,6 +199,7 @@ define([
                 strInfoTitleE = strInfoTitle;
                 strInfoContentE = strInfoContent;
             }
+
             var findParams = new esri.tasks.FindParameters();
             var blnGood = false;
 
@@ -618,11 +620,12 @@ define([
             var selectedBookmark = 'acc';
             var rawdata = this.bookmarkData;
             var strINSTLID = '';
-            var strDataURL = '';
+            var strDataURL = '';  dojo.require("dijit._editor.plugins.Print");
+            //alert('<p> Select Location  <a id="dataURL" style="font-style:bold; padding-left:120px;"  href="http://www.bing.com/" target="_blank"></a></p><br><div data-dojo-type="dijit.Editor" height="250px" id="input" data-dojo-props="extraPlugins:[' + "'" + print + "'" + ']"   ></div><br> ');
 
             var contentP = new dijit.layout.ContentPane({
-
-                content: '<p> Select Location  <a id="dataURL" style="font-style:bold; padding-left:120px;"  href="http://www.bing.com/" target="_blank"></a></p>',
+                
+                content: '<p> Select Location  <a id="dataURL" style="font-style:bold; padding-left:120px;"  href="http://www.bing.com/" target="_blank"></a></p><br><br> ',
                 style: "height:100%; min-width:320px; max-height: 690px;overflow:auto;"
             }, "targetID");           
 
@@ -642,6 +645,7 @@ define([
              
                // showRoot: false,
                 label: "Search",
+                id: 'searchBuildingButton',
                 disabled: 'disabled',
                 style:'padding-left:10px; padding-bottom:0px;',
                 onClick: lang.hitch(this, function () {       
@@ -737,7 +741,6 @@ define([
                                 if (item.instlid != undefined) {
                                     if (item.instlid != '') {
                                         strINSTLID = item.instlid;
-
                                         if (item.numberFields != undefined) {
                                             if (item.numberFields != '') {
 

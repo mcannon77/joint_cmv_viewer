@@ -160,6 +160,21 @@ define([
                     }
                 }
             },
+
+            CoordinateFind: {
+                include: true,
+                id: 'coordinateFind',
+                type: 'titlePane',
+                position: 2,
+                canFloat: false,
+                path: 'gis/dijit/CoordinateFind',
+                title: 'Find Coordinate',
+                options: {
+                    map: true,
+                    zoomScale: 14
+                }
+            },
+
             identify: {
                 include: true,
                 id: 'identify',
@@ -167,7 +182,7 @@ define([
                 path: 'gis/dijit/Identify',
                 title: 'Identify',
                 open: false,
-                position: 3,
+                position: 4,
                 options: 'config/identify'
             },
             basemaps: {
@@ -247,7 +262,8 @@ define([
                 title: '<i class="fa fa-globe"></i>&nbsp;&nbsp;AF Imagery',
                 //options: {map: true}
                 options: 'config/imageryManagement'
-            },           
+            },
+
             openskies: {
                 include: false,
                 id: 'os',
@@ -341,7 +357,7 @@ define([
                 path: 'gis/dijit/CoordinateView',
                 srcNodeRef: 'coordinateViewDijit',
                 options: 'config/coordinateview'
-            },
+            },           
             bookmarks: {
                 include: false,
                 id: 'bookmarks',
@@ -353,7 +369,7 @@ define([
                 options: 'config/bookmarks'
             },
             find: {
-                include: true,
+                include: false,
                 id: 'find',
                 type: 'titlePane',
                 canFloat: true,
@@ -394,7 +410,7 @@ define([
                 }
             },
             print: {
-                include: true,
+                include: false,
                 id: 'print',
                 type: 'titlePane',
                 canFloat: true,
@@ -413,7 +429,7 @@ define([
                 }
             },
             directions: {
-                include: true,
+                include: false,
                 id: 'directions',
                 type: 'titlePane',
                 path: 'gis/dijit/Directions',
@@ -434,7 +450,7 @@ define([
                 }
             },
             editor: {
-                include: true,
+                include: false,
                 id: 'editor',
                 type: 'titlePane',
                 path: 'gis/dijit/Editor',
@@ -461,7 +477,7 @@ define([
                 }
             },
             streetview: {
-                include: true,
+                include: false,
                 id: 'streetview',
                 type: 'titlePane',
                 canFloat: true,
@@ -475,7 +491,7 @@ define([
                 }
             },
             help: {
-                include: true,
+                include: false,
                 id: 'help',
                 type: 'floating',
                 path: 'gis/dijit/Help',

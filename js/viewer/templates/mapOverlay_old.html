@@ -1,5 +1,29 @@
+<style>
+    hr {
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+</style>
+
+<script>
+dojo.require("dijit.form.Button");
+dojo.require("dijit.Editor");
+dojo.require("dijit._editor.plugins.Print");
+</script>
+<br>
+<div data-dojo-type="dijit.Editor" height="250px" id="input">
+</div>
+<br>
+
 <div style="position:absolute;bottom:0;left:0;z-index:40;">
-    <div id="mapInfoDijit">
+    <div id="printeditor">
+        <div id="mapInfoDijit">
+        </div>
     </div>
 </div>
 <div style="position:absolute;top:20px;left:60px;z-index:40;">
@@ -10,12 +34,12 @@
     <div id="basemapsDijit">
     </div>
 </div>
-<div style="position:absolute;bottom:20px;right:20px;z-index:40;">
-    <div id="coordinateViewDijit">
-    </div>
-</div>
 <div style="position:absolute;top:60px;right:20px;z-index:40;width:250px;">
     <div id="growlerDijit">
+    </div>
+</div>
+<div style="position:absolute;bottom:20px;right:20px;z-index:40;">
+    <div id="coordinateViewDijit">
     </div>
 </div>
 <div style="position: absolute;left:19px;top:94px;z-index:40;">

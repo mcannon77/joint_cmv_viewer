@@ -44,6 +44,7 @@ define([
 		startup: function (config) {
 			this.config = config;
 			this.mapClickMode = {
+			    id: 'collapseButton',
 				current: config.defaultMapClickMode,
 				defaultMode: config.defaultMapClickMode
 			};

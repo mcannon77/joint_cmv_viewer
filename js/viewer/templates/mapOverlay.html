@@ -12,10 +12,40 @@
 
 </style>
 
+<!--
+  var DocumentContainer = document.getElementById('mapCenter_root');
+        var html = '
+<html>
+<head>
+    '+
+
+    '
+</head>
+<body>
+    '+
+    DocumentContainer.innerHTML+
+    '
+</body>
+</html>';
+
+    var WindowObject = window.open('', 'PrintWindow', 'width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+    WindowObject.document.writeln(html);
+    WindowObject.document.close();
+    WindowObject.focus();
+    WindowObject.print();
+    WindowObject.close();
+    document.getElementById('mapCenter_root').style.display='block';
+
+-->
+
+
 
 <div style="position:absolute;bottom:0;left:0;z-index:40;">
+
+
     <div id="mapInfoDijit">
     </div>
+
 </div>
 <div style="position:absolute;top:20px;left:60px;z-index:40;">
     <div id="afBookmarksDijit">
