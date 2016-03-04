@@ -18,6 +18,15 @@ define([
   'dojo/on',
   'dojo/keys',
 
+  'esri/layers/GraphicsLayer',
+  'esri/graphic',    
+  'esri/symbols/SimpleMarkerSymbol',
+  'esri/symbols/SimpleLineSymbol',
+  'esri/symbols/CartographicLineSymbol', 
+  'esri/Color',
+  'esri/geometry/webMercatorUtils',
+  'dojox/gfx/fx',  
+
   'dijit/TooltipDialog',
   'dijit/popup',
 
@@ -31,6 +40,8 @@ define([
   'dojo/text!./CoordinateFind/templates/CoordinateFind.html',
   'xstyle/css!./CoordinateFind/css/CoordinateFind.css',
   "esri/geometry/Point",
+ 
+  
 // not referenced
   'dijit/form/Button',
   'dijit/form/TextBox',
@@ -38,6 +49,7 @@ define([
 ], function(
   declare, lang, array,
   on, keys,
+  GraphicsLayer, Graphic, SimpleMarkerSymbol, SimpleLineSymbol, CartographicLineSymbol, esriColor, webMercatorUtils, fx,
   TooltipDialog, popup,
   put, 
   _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
@@ -124,6 +136,13 @@ define([
                 alert('Unable to load MGRS code')
             });
 
+            this.connect(this.parentWidget, 'toggle', 'onWidgetToggle');
+
+        },
+
+        onWidgetToggle: function (evt) {
+            this.map.graphics.clear();
+
         },
         setupConnections: function() {
             this.helpTooltip = new TooltipDialog({
@@ -144,7 +163,9 @@ define([
         updateHintText: function() {
             var coordTypeDisplay = this.gotoTypeSelect.get('displayedValue');
             var coordType = this.gotoTypeSelect.get('value');
+            
             this.coordinateHintNode.innerHTML = coordTypeDisplay + ' ' + this.coordTypeTemplates[coordType].examples[0];
+            this.coordinateTextBox.set("value", '');
         },
         showCoordHelp: function() {
             var coordType = this.gotoTypeSelect.get('value');
@@ -170,30 +191,84 @@ define([
             var inputCoord = this.coordinateTextBox.get('value');
             var coordType = this.getCoordinateType();
             var intZoomScale = this.zoomScale;
+            if (inputCoord.length > 4) {
+                if (coordType != 'mgrs') {
+                    var latlongCoord = this.determineLatLongFromCoordinate(inputCoord);
 
-            if (coordType != 'mgrs') {
-                var latlongCoord = this.determineLatLongFromCoordinate(inputCoord);
-                
-                if (latlongCoord !== null && !isNaN(latlongCoord[0]) && !isNaN(latlongCoord[1])) {
+                    if (latlongCoord !== null && !isNaN(latlongCoord[0]) && !isNaN(latlongCoord[1])) {
 
-                    var intScale = this.map.getLevel();
-                    if (intScale < intZoomScale) {
-                        this.map.centerAndZoom(latlongCoord, intZoomScale);
-                    } else {
-                        this.map.centerAt(latlongCoord);
+                        var intScale = this.map.getLevel();
+
+                        if (intScale < intZoomScale) {
+                            this.map.centerAndZoom(latlongCoord, intZoomScale);
+
+                        } else {
+                            this.map.centerAt(latlongCoord);
+                        }
+                        var webMerCoord = webMercatorUtils.lngLatToXY(latlongCoord[0], latlongCoord[1]);
+                        //   var point = new Point(webMerCoord[0], webMerCoord[1]);
+                        var point = new Point(parseFloat(webMerCoord[0]), parseFloat(webMerCoord[1]), new esri.SpatialReference({ wkid: 102100 }));
+
+                        this.flashResults(point);
+
+
                     }
-
-               
+                } else {
+                    this.convertMGRS(inputCoord);
                 }
             } else {
-                this.convertMGRS(inputCoord);
+                alert('No Coordinates Entered')
             }
-
           
            
-        },
+        },   
       
+        
+        flashResults: function (point) {
+           
+          
+           //remove all graphics on the maps graphics layer
+            this. map.graphics.clear();
 
+            var markerSymbolStay = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_DIAMOND, 28, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 0, 0, 0.85]));
+            var markerSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_DIAMOND, 28, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 255, 255]), 2), new dojo.Color([255, 217, 0]));
+            var graphicFlash = new Graphic(point, markerSymbol);
+
+            var graphicFlashStay = new Graphic(point, markerSymbolStay);
+
+            //Add graphic to the map graphics layer.
+            this.map.graphics.add(graphicFlashStay);
+            this.map.graphics.add(graphicFlash);
+
+            var shape = graphicFlash.getShape();
+
+            var animStroke = fx.animateStroke({
+                shape: shape,
+                duration: 1500,
+                color: {
+                    end: new dojo.Color([0, 0, 0, 0])
+                }
+            });
+
+            var animFill =fx.animateFill({
+                shape: shape,
+                duration: 1500,
+                color: {
+                    end: new dojo.Color([0, 0, 0, 0])
+                }
+            });
+
+            var anim = dojo.fx.combine([animStroke, animFill]).play();
+
+            var animConnect = dojo.connect(anim, "onEnd", function () {
+                this.map.graphics.remove(graphicFlash);
+               
+               
+            });
+
+            
+            
+        },
         convertMGRS: function(inputCoord) {
            
             var usngp = new Object();
@@ -218,11 +293,21 @@ define([
            
                 var latLon = this.parseDec(coords.lon.toString() + ' ' + coords.lat.toString());
                 var intScale = this.map.getLevel();
+
+
+
                 if (intScale < intZoomScale) {
                     this.map.centerAndZoom(latLon, intZoomScale);
+
                 } else {
                     this.map.centerAt(latLon);
                 }
+                var webMerCoord = webMercatorUtils.lngLatToXY(latLon[0], latLon[1]);
+                //   var point = new Point(webMerCoord[0], webMerCoord[1]);
+                var point = new Point(parseFloat(webMerCoord[0]), parseFloat(webMerCoord[1]), new esri.SpatialReference({ wkid: 102100 }));
+                this.flashResults(point);
+
+
 
              
             }
